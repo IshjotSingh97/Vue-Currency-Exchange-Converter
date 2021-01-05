@@ -22,11 +22,27 @@
     </nav>
 
     <div class="col-md-6" style="margin: 1rem auto;">
-        <img src="images/main.webp" class="img-fluid img-thumbnail" style="margin: 0 auto;display: block;">
+        <img src="images/main.webp" class="img-fluid img-thumbnail" style="margin: 0 auto;display: block;height: 15rem;">
     </div>
 
-    <div id="myapp" class="col-md-6">
-        
+    <div id="myapp" class="col-md-6" style="margin: 1rem auto;">
+        <p style="text-align: center;color: green">You value is {{currencyvalue}} and base is {{currencybase}}</p>
+        <form style="padding: 1rem;">
+            <div class="mb-3">
+                <label for="currencyvalue" class="form-label"></label>
+                <input type="number" class="form-control" name="currencyvalue" id="currencyvalue" v-model="currencyvalue">
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="INR" id="INR" value="INR" v-model="currencybase">
+                <label class="form-check-label" for="INR">
+                  INR
+                </label>
+                <input class="form-check-input" type="radio" name="INR" id="INR"  value="DFDF" v-model="currencybase">
+                <label class="form-check-label" for="INR">
+                  INR
+                </label>
+              </div>
+        </form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
