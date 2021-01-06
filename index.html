@@ -28,27 +28,26 @@
 
     <div id="myapp" class="col-md-6" style="margin: 1rem auto;">
         <p style="text-align: center;color: green">You value is {{currencyvalue}} and base is {{currencybase}}</p>
-        <form style="padding: 1rem;">
+        <form style="padding: 1rem;" @submit.prevent="getExchangeRates">
             <div class="mb-3">
                 <label for="currencyvalue" class="form-label"></label>
                 <input type="number" class="form-control" name="currencyvalue" id="currencyvalue"
                     v-model="currencyvalue">
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="INR" id="INR" value="INR" v-model="currencybase">
-                <label class="form-check-label" for="INR">
-                    INR
-                </label>
-                <input class="form-check-input" type="radio" name="INR" id="INR" value="DFDF" v-model="currencybase">
-                <label class="form-check-label" for="INR">
-                    INR
-                </label>
+                <input v-model="currencybase"  list="currencieslist">
+                <datalist id="currencieslist">
+                    <option v-for="(item,key,index) in currencies" :value="key">{{item}}</option>
+                </datalist>
             </div>
             <div>
                 <input type="submit" class="btn btn-primary" value="Get Exchange Rates" style="display: block;margin: 0 auto;">
             </div>
         </form>
+        {{rates}}
     </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
