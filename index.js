@@ -4,9 +4,10 @@ const myappcomponent = {
     data(){
         return {
             currencyvalue : 1,
-            currencybase : null,
-            currencies : [],
-            rates : []
+            currencyfrom : null,
+            currencyto : null,
+            currencies : null,
+            result : null
         }
     },
     methods : {
@@ -14,13 +15,13 @@ const myappcomponent = {
             console.log("Request...hit")
             console.log(`${this.currencyvalue}`)
             console.log(`${this.currencybase}`)
-            let query = `https://api.exchangeratesapi.io/latest?base=${this.currencybase}`
+            let query = `https://api.exchangeratesapi.io/latest?base=${this.currencyfrom}`
             console.log(query)
             await axios.get(query)
             .then((response)=>{
                 console.log(response.data)
-                this.rates = response.data.rates
-                console.log(this.rates)
+                this.currencyto= response.data.rates
+                console.log(this.currencyto)
             })
             .catch((error)=>{
                 console.log(error)
