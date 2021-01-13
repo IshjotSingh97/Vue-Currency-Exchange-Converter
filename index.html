@@ -30,7 +30,7 @@
     </div>
 
     <div id="myapp" class="col-md-6" style="margin: 1rem auto;">
-        <p style="text-align: center;color: green">You value is {{currencyvalue}} and base is {{currencybase}}</p>
+        <p style="text-align: center;color: red" v-if="currencyfrom == null">*Please Select Your Currency</p>
         <form style="padding: 1rem;" @submit.prevent="getExchangeRates">
             <div class="mb-3">
                 <label for="currencyvalue" class="form-label"></label>
