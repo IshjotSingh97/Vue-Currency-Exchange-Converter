@@ -38,7 +38,7 @@
                     v-model="currencyvalue">
             </div>
             <div class="mb-3">
-                <input v-model="currencyfrom"  list="currencieslist" class="form-control" placeholder="Select From Currency Value ...."> 
+                <input v-model="currencyfrom"  list="currencieslist" class="form-control" placeholder="Select From Currencies"> 
                 <datalist id="currencieslist">
                     <option v-for="(value, name, index) in currencies" v-bind:value="name"></option>
                 </datalist>
@@ -72,7 +72,6 @@
                   </table>
             </div>
         </form>
-        {{rates}}
     </div>
 
 
